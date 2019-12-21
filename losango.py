@@ -1,41 +1,17 @@
-size = int(input("Size of diamont (only odd numbers): "))
-if (size % 2 == 1):
-    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    letterCounter = 0
-    x = 1
-    while (x < (size // 2) + 1):
-        y = 1
-        z = x * 2 - 1
-        while (y <= size):
-            lowerLimit = ((size // 2) + 1) - (z // 2)
-            upperLimit = ((size // 2) + 1) + (z // 2)
-            if (y >= lowerLimit and y <= upperLimit):
-                print(alphabet[letterCounter], end='')
-            else:
-                print(' ', end='')
-            y = y + 1
-        print('')
-        x += 1
-        letterCounter += 1
-        if (letterCounter + 1 > len(alphabet)):
-            letterCounter = 0
+def centraliza(n, l):
+    '''Função centraliza.
+    centraliza os astrríscos na linha'''
 
-    x = (size // 2) + 1
-    while (x > 0):
-        y = 1
-        z = x * 2 - 1
-        while (y <= size):
-            lowerLimit = ((size // 2) + 1) - (z // 2)
-            upperLimit = ((size // 2) + 1) + (z // 2)
-            if (y >= lowerLimit and y <= upperLimit):
-                print(alphabet[letterCounter], end='')
-            else:
-                print(' ', end='')
-            y = y + 1
-        print('')
-        x -= 1
-        letterCounter += 1
-        if (letterCounter + 1 > len(alphabet)):
-            letterCounter = 0
+    x = int((n-l)/2)
+    print(f'-'*x + '*'*l + '-'*x)
+
+num = int(input("Informe um numero impar: "))
+
+if num%2 == 1:
+    for i in range (1, num, 2):
+        centraliza(num, i)
+    print(f'*'*9)
+    for i in range((num-2), 0, -2):
+        centraliza(num, i)
 else:
-    print("Not odd number! EXIT!!!!")
+    print('Numero informedo não é ímpar!')
